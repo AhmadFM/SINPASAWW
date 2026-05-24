@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda – {{ $tenant->nama_tenant }}</title>
+@extends('layouts.tenant')
 
-    {{-- ── Google Fonts ── --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+@section('title', 'Beranda – ' . $tenant->nama_tenant)
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+@section('styles')
     <style>
         /* ── Design tokens ────────────────────────────────────── */
         :root {
@@ -40,7 +31,7 @@
         .stat-card {
             background: #F4F4EF;
             border-radius: 16px;
-            padding: 1.5rem 1.8rem;
+            padding: 1.5rem;
         }
         .stat-card.danger-card {
             background-color: var(--danger-soft);
@@ -175,42 +166,9 @@
         }
         .tx-table tr:hover td { background-color: #f9fafb; }
     </style>
-</head>
+@endsection
 
-<body>
-    {{-- ── Sidebar ── --}}
-    <x-tenant.sidebar />
-
-    {{-- ══════════════════════════════════════════════════════════
-         MAIN CONTENT
-         • Mobile (<lg) : ml-0, p-4
-         • Desktop (lg+): ml-56, p-8
-         ══════════════════════════════════════════════════════════ --}}
-    <main class="lg:ml-56 min-h-screen p-4 lg:p-8">
-
-        {{-- ── Mobile top bar: hamburger kiri + avatar kanan ───── --}}
-        {{-- Sesuai desain: ikon hamburger di kiri, foto toko di kanan atas --}}
-        <div class="flex items-center justify-between mb-5 lg:hidden">
-            <button onclick="openSidebar()" class="hamburger-btn" aria-label="Buka menu">
-                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-
-            {{-- Avatar di kanan atas (mobile) — sesuai desain --}}
-            @if ($tenant->foto)
-                <img src="{{ asset($tenant->foto) }}"
-                     alt="{{ $tenant->nama_tenant }}"
-                     class="w-6 h-6 rounded-full object-cover">
-            @else
-                {{-- Fallback inisial jika tidak ada foto --}}
-                <div class="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                     style="background-color:var(--primary);">
-                    {{ strtoupper(substr($tenant->nama_tenant, 0, 1)) }}
-                </div>
-            @endif
-        </div>
-
+@section('content')
         {{-- ── Flash message ────────────────────────────────────── --}}
         @if (session('success'))
             <div class="mb-4 px-4 py-3 rounded-xl text-sm font-medium"
@@ -922,8 +880,6 @@
 
         <div class="pb-6"></div>
 
-    </main>
-
     <script>
         /* Ganti periode dan submit form otomatis */
         function setPeriode(val) {
@@ -933,5 +889,4 @@
             document.getElementById('periodeForm').submit();
         }
     </script>
-</body>
-</html>
+@endsection
