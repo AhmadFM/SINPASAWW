@@ -6,14 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-
-    Route::get('/admin', function () {
-        return view('admin.dashboard');
-    });
-
-});
-
 Route::middleware(['auth', 'role:tenant'])->group(function () {
 
     Route::get('/tenant', function () {
@@ -81,11 +73,27 @@ Route::prefix('tenant')->name('tenant.')->middleware(['auth', 'verified'])->grou
 });
 
 // DASHBOARD ADMIN
+use App\Http\Controllers\Admin\BerandaController  as AdminBerandaController;
+use App\Http\Controllers\Admin\KontenController   as AdminKontenController;
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/admin', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/admin', [AdminBerandaController::class, 'index'])
+        ->name('admin.beranda');
+
+    /* ── Beranda ── */
+    Route::get('/beranda', [AdminBerandaController::class, 'index'])->name('beranda');
+
+    /* Toggle aktif/nonaktif tenant dari tabel */
+    Route::post('/tenant/{tenant}/toggle', [AdminBerandaController::class, 'toggleTenant'])
+         ->name('tenant.toggle');
+
+    /* ── Manajemen Konten ── */
+    Route::get('/konten',               [AdminKontenController::class, 'index'])       ->name('admin.konten');
+    Route::post('/konten',              [AdminKontenController::class, 'store'])       ->name('admin.konten.store');
+    Route::put('/konten/{id}',          [AdminKontenController::class, 'update'])      ->name('admin.konten.update');
+    Route::delete('/konten/{id}',       [AdminKontenController::class, 'destroy'])     ->name('admin.konten.destroy');
+    Route::post('/konten/{id}/toggle',  [AdminKontenController::class, 'toggleStatus'])->name('admin.konten.toggle');
 
 });
 
@@ -112,3 +120,24 @@ Route::get('/tenant/export/pdf', [ExportController::class, 'exportPdf'])
 
 Route::get('/tenant/export/excel', [ExportController::class, 'exportExcel'])
     ->name('tenant.export.excel');
+
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\kontenController;
+use App\Http\Controllers\DenahController;
+
+Route::get('/', [LandingController::class, 'index'])
+    ->name('home');
+
+Route::get('/home', [LandingController::class, 'index']);
+
+Route::get('/konten/{id}', [KontenController::class, 'show'])
+    ->name('konten.show');
+
+Route::get('/denah', [DenahController::class, 'index'])
+    ->name('denah');
+
+Route::view('/syarat-ketentuan', 'public.pages.snk')
+    ->name('snk');
+
+Route::view('/kebijakan-privasi', 'public.pages.privasi')
+    ->name('privasi');
