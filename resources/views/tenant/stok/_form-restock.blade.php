@@ -47,6 +47,16 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label class="form-label">NOMINAL DIBERIKAN</label>
+    <div class="input-prefix-wrap">
+        <span class="input-prefix">Rp</span>
+        <input type="number" id="{{ $prefix }}RsDiberikan"
+               class="form-input has-prefix" placeholder="0" min="0"
+               oninput="calcRestock('{{ $prefix }}')" required>
+    </div>
+</div>
+
 {{-- Metode bayar ke supplier: QRIS / TUNAI --}}
 <div class="flex gap-2 mb-4">
     <button type="button" id="{{ $prefix }}RsBtnQRIS"
@@ -75,12 +85,9 @@
         <span>Total</span>
         <span id="{{ $prefix }}RsTotal" style="color:var(--primary);">Rp 0</span>
     </div>
-    {{-- Bayar: input langsung di baris summary --}}
-    <div class="flex justify-between items-center text-gray-500">
-        <span>Bayar</span>
-        <input type="number" name="bayar" id="{{ $prefix }}RsBayar"
-               class="text-right text-sm font-semibold text-gray-800 w-32 border-none outline-none bg-transparent"
-               placeholder="0" min="0" oninput="calcRestock('{{ $prefix }}')" required>
+    {{-- Bayar --}}
+    <div class="flex justify-between text-gray-500">
+        <span>Bayar</span><span id="{{ $prefix }}RsBayar">Rp 0</span>
     </div>
     <div class="flex justify-between text-gray-500">
         <span>Kembali</span><span id="{{ $prefix }}RsKembali">Rp 0</span>

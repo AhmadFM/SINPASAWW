@@ -15,7 +15,6 @@ class Tenant extends Model
         'user_id',
         'nama_tenant',
         'kategori',
-        'blok',
         'foto',
         'deskripsi',
         'lama_kontrak',
@@ -49,8 +48,12 @@ class Tenant extends Model
         return $this->hasMany(Kasbon::class, 'tenant_id', 'tenant_id');
     }
 
-    public function denah(): HasMany
+    public function denah()
     {
-        return $this->hasMany(Denah::class, 'tenant_id', 'tenant_id');
+        return $this->hasOne(
+            \App\Models\Denah::class,
+            'tenant_id',
+            'tenant_id'
+        );
     }
 }

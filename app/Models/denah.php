@@ -14,12 +14,14 @@ class Denah extends Model
 
     protected $keyType = 'string';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'denah_id',
         'blok',
         'tenant_id',
         'posisi_x',
-        'posisi_y',
+        'posisi_y'
     ];
 
     public function tenant()
@@ -29,5 +31,12 @@ class Denah extends Model
             'tenant_id',
             'tenant_id'
         );
+    }
+
+    public function getStatusAttribute()
+    {
+        return $this->tenant_id
+            ? 'terisi'
+            : 'kosong';
     }
 }

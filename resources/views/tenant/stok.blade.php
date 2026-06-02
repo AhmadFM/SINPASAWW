@@ -291,7 +291,7 @@ function switchStokTab(tab) {
 function calcRestock(prefix) {
     const qty   = parseFloat(document.getElementById(prefix + 'RsQty')?.value)   || 0;
     const harga = parseFloat(document.getElementById(prefix + 'RsHarga')?.value) || 0;
-    const bayar = parseFloat(document.getElementById(prefix + 'RsBayar')?.value) || 0;
+    const bayar = parseFloat(document.getElementById(prefix + 'RsDiberikan')?.value) || 0;
     const total     = qty * harga;
     const kembalian = Math.max(0, bayar - total);
     const kurang    = Math.max(0, total - bayar);
@@ -301,6 +301,7 @@ function calcRestock(prefix) {
     if(s('RsSubtotal')) s('RsSubtotal').textContent = rp(total);
     if(s('RsTotal'))    s('RsTotal').textContent    = rp(total);
     if(s('RsKembali'))  s('RsKembali').textContent  = rp(kembalian);
+    if(s('RsBayar')) s('RsBayar').textContent = rp(bayar);
     if(s('RsKurang'))   {
         s('RsKurang').textContent  = rp(kurang);
         s('RsKurang').style.color  = kurang > 0 ? 'var(--danger)' : '#6b7280';

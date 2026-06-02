@@ -8,16 +8,32 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
+use App\Models\Denah;
+use Illuminate\Support\Facades\DB;
 
 class PengaturanController extends Controller
 {
     /* ── Halaman Pengaturan ─────────────────────────────────────────── */
     public function index()
-    {
-        $tenant = Auth::user()->tenant;
-        $user   = Auth::user();
-        return view('tenant.pengaturan', compact('tenant', 'user'));
-    }
+{
+    $tenant = Auth::user()->tenant;
+    $user   = Auth::user();
+
+    $lapakKosong = Denah::query()
+        ->whereNull('tenant_id')
+        ->orWhere('tenant_id', $tenant->tenant_id)
+        ->orderBy('denah_id')
+        ->get();
+
+    return view(
+        'tenant.pengaturan',
+        compact(
+            'tenant',
+            'user',
+            'lapakKosong'
+        )
+    );
+}
 
     /* ── Update Profil Toko ─────────────────────────────────────────── */
     public function updateProfil(Request $request)
@@ -28,7 +44,7 @@ class PengaturanController extends Controller
         $request->validate([
             'nama_tenant' => 'required|string|max:255',
             'kategori'    => 'nullable|string|max:100',
-            'blok'        => 'nullable|string|max:50',
+            'denah_id'    => 'nullable|exists:denah,denah_id',
             'nama_pemilik'=> 'required|string|max:255',
             'email'       => 'required|email|unique:users,email,' . $user->id,
             'no_hp'       => 'nullable|string|max:20',
@@ -39,7 +55,6 @@ class PengaturanController extends Controller
         $tenantData = [
             'nama_tenant' => $request->nama_tenant,
             'kategori'    => $request->kategori,
-            'blok'        => $request->blok,
         ];
 
         /* ── Handle foto upload ── */
@@ -53,6 +68,40 @@ class PengaturanController extends Controller
         }
 
         $tenant->update($tenantData);
+
+        DB::transaction(function () use ($tenant, $request) {
+
+            // Lepas lapak lama
+            Denah::where(
+                'tenant_id',
+                $tenant->tenant_id
+            )->update([
+                'tenant_id' => null
+            ]);
+
+            // Isi lapak baru
+            if ($request->filled('denah_id')) {
+
+                $lapak = Denah::where(
+                    'denah_id',
+                    $request->denah_id
+                )->first();
+
+                // Cegah rebut lapak orang
+                if (
+                    $lapak->tenant_id !== null &&
+                    $lapak->tenant_id !== $tenant->tenant_id
+                ) {
+                    throw new \Exception(
+                        'Lapak sudah ditempati tenant lain.'
+                    );
+                }
+
+                $lapak->update([
+                    'tenant_id' => $tenant->tenant_id
+                ]);
+            }
+        });
 
         /* ── Update user data ── */
         $user->update([

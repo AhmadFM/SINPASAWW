@@ -121,23 +121,15 @@ Route::get('/tenant/export/pdf', [ExportController::class, 'exportPdf'])
 Route::get('/tenant/export/excel', [ExportController::class, 'exportExcel'])
     ->name('tenant.export.excel');
 
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\kontenController;
 use App\Http\Controllers\DenahController;
-
-Route::get('/', [LandingController::class, 'index'])
-    ->name('home');
-
-Route::get('/home', [LandingController::class, 'index']);
-
-Route::get('/konten/{id}', [KontenController::class, 'show'])
-    ->name('konten.show');
 
 Route::get('/denah', [DenahController::class, 'index'])
     ->name('denah');
 
-Route::view('/syarat-ketentuan', 'public.pages.snk')
-    ->name('snk');
+use App\Http\Controllers\GuestController;
 
-Route::view('/kebijakan-privasi', 'public.pages.privasi')
-    ->name('privasi');
+Route::get('/',                  [GuestController::class, 'index'])       ->name('guest.index');
+Route::get('/denah',             [GuestController::class, 'denah'])       ->name('guest.denah');
+Route::get('/berita/{id}',       [GuestController::class, 'beritaDetail'])->name('guest.berita');
+Route::get('/syarat-ketentuan',  [GuestController::class, 'snk'])         ->name('guest.snk');
+Route::get('/kebijakan-privasi', [GuestController::class, 'privasi'])     ->name('guest.privasi');

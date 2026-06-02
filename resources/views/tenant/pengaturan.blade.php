@@ -183,12 +183,21 @@
                 {{-- Blok --}}
                 <div class="form-group">
                     <label class="form-label">BLOK</label>
-                    <input type="text" name="blok"
-                           class="form-input @error('blok') ring-2 ring-red-300 @enderror"
-                           value="{{ old('blok', $tenant->blok) }}" placeholder="L054">
+                    <select type="text" name="denah_id"
+                           class="form-select @error('blok') ring-2 ring-red-300 @enderror"
+                            placeholder="Pilih blok disini...">
+                           @foreach($lapakKosong as $lapak)
+                            <option
+                                value="{{ $lapak->denah_id }}"
+                                {{ old('denah_id', $tenant->denah?->denah_id) == $lapak->denah_id ? 'selected' : '' }}
+                            >
+                                {{ $lapak->denah_id }}
+                            </option>
+                        @endforeach
+                    </select>
                     @error('blok')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
-                </div>
 
+                </div>
                 {{-- Nama Pemilik --}}
                 <div class="form-group">
                     <label class="form-label">NAMA PEMILIK</label>

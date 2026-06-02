@@ -189,7 +189,7 @@
                     {{ $tenant->nama_tenant }}
                 </h1>
                 <p class="text-sm font-semibold mt-0.5 text-[#925800]">
-                    {{ $tenant->blok }}
+                    {{ $tenant->denah?->denah_id ?? '-' }}
                 </p>
                 <p class="text-xs text-gray-900 mt-2 leading-relaxed">
                     Kelola transaksi hari ini dengan cepat dan pantau stok bahan makanan Anda secara real-time.
