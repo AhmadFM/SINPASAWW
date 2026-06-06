@@ -42,6 +42,7 @@
 .settings-section {
     background:#fff; border-radius:16px; border:1px solid #eef0ef; padding:1.75rem;
 }
+
 @endsection
 
 @section('content')
