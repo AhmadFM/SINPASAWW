@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
 
             {{-- Logo --}}
-            <a href="{{ route('guest.index') }}" class="flex-shrink-0">
+            <a href="{{ route('guest.index') }}" class="shrink-0">
                 <img src="{{ asset('images/LOGO_PASAR.svg') }}"
                      alt="Pasar Modern Sinpasa"
                      class="h-9 w-auto"
@@ -15,14 +15,14 @@
             </a>
 
             {{-- Desktop nav ─ hidden on mobile --}}
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-reguler text-[#121212] uppercase">
                 @php
                     $current = request()->routeIs('guest.index') ? 'index' : (request()->routeIs('guest.denah') ? 'denah' : '');
                 @endphp
 
                 @if ($current === 'index')
                     {{-- On homepage: smooth scroll anchors --}}
-                    <a href="#hero"      class="nav-link {{ $current==='index' ? 'active' : '' }}" data-section="beranda">BERANDA</a>
+                    <a href="#hero"      class="nav-link {{ $current==='index' ? 'active' : '' }}" data-section="beranda">Beranda</a>
                     <a href="#fasilitas" class="nav-link" data-section="fasilitas">Fasilitas</a>
                     <a href="{{ route('guest.denah') }}" class="nav-link" data-section="denah">Denah</a>
                     <a href="#testimoni" class="nav-link" data-section="testimoni">Testimoni</a>
@@ -45,7 +45,7 @@
             {{-- Portal login link (subtle, top right) --}}
             <div class="hidden lg:flex items-center gap-3">
                 <a href="{{ route('login') }}"
-                   class="text-xs text-gray-400 hover:text-[#007E43] transition-colors font-medium">
+                   class="text-xs text-[#40493D] hover:text-[#007E43] transition-colors font-reguler">
                     Portal Login →
                 </a>
             </div>

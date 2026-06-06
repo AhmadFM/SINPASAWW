@@ -81,7 +81,7 @@
 {{-- ── Mobile form panel (hidden by default, shown via toggle) ── --}}
 <div id="mobileFormPanel" class="mobile-form-panel lg:hidden mb-5">
     <div class="form-card">
-        <h3 class="font-manrope font-bold text-gray-800 mb-4">Buat Konten Baru</h3>
+        <h3 class="font-manrope font-bold text-[#1A1C19] mb-4">Buat Konten Baru</h3>
         @include('admin.konten._form', ['prefix' => 'm', 'editKonten' => $editKonten])
     </div>
 </div>

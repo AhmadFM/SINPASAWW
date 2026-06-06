@@ -15,12 +15,12 @@
 }
 .hero-section::before {
     content:''; position:absolute; inset:0;
-    background:linear-gradient(to right, rgba(0,59,31,.88) 0%, rgba(0,59,31,.5) 55%, transparent 100%);
+    background:linear-gradient(to right, rgba(0,0,0,.88) 0%, rgba(0,0,0,.5) 55%, transparent 100%);
 }
 
 /* ── Fasilitas card ───────────────────────────── */
 .fasilitas-card {
-    background:#fff; border-radius:16px; padding:1.75rem 1.5rem;
+    background:#FAFAF5; border-radius:16px; padding:1.75rem 1.5rem;
     text-align:center; transition:box-shadow .2s, transform .2s;
 }
 .fasilitas-card:hover {
@@ -29,7 +29,7 @@
 }
 .fasilitas-icon {
     width:56px; height:56px; border-radius:16px;
-    background:#E6F6EE; display:flex; align-items:center; justify-content:center;
+    background:#B0E4CC; display:flex; align-items:center; justify-content:center;
     margin:0 auto 1rem;
 }
 
@@ -52,9 +52,9 @@
 /* ── Section title ────────────────────────────── */
 .section-title {
     font-family:'Manrope',sans-serif; font-size:clamp(1.5rem,4vw,2.25rem);
-    font-weight:800; color:#003B1F; letter-spacing:-.02em;
+    font-weight:800; color:#121212; letter-spacing:-.02em;
 }
-.section-subtitle { font-size:15px; color:#6b7280; margin-top:.5rem; }
+.section-subtitle { font-size:15px; color:#121212; margin-top:.5rem; }
 </style>
 @endsection
 
@@ -107,26 +107,26 @@
             <div class="fasilitas-card">
                 <div class="fasilitas-icon">
                     @if ($f['icon'] === 'parking')
-                        <svg class="w-7 h-7" style="color:#007E43;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7" style="color:#008647;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v10m4-10v10M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
                         </svg>
                     @elseif ($f['icon'] === 'toilet')
-                        <svg class="w-7 h-7" style="color:#007E43;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7" style="color:#6D4200;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                     @elseif ($f['icon'] === 'mosque')
-                        <svg class="w-7 h-7" style="color:#007E43;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7" style="color:#008647;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V8.72a2 2 0 011.18-1.82l5-2.22a2 2 0 011.64 0l5 2.22A2 2 0 0119 8.72V21M9 21v-5a3 3 0 016 0v5"/>
                         </svg>
                     @else
-                        <svg class="w-7 h-7" style="color:#007E43;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7" style="color:#6D4200;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                         </svg>
                     @endif
                 </div>
-                <h4 class="font-manrope font-bold text-[#003B1F] mb-1.5 text-sm lg:text-base"
+                <h4 class="font-manrope font-bold text-[#121212] mb-1.5 text-sm lg:text-base"
                     style="font-family:'Manrope',sans-serif;">{{ $f['title'] }}</h4>
-                <p class="text-gray-500 text-xs lg:text-sm leading-relaxed">{{ $f['desc'] }}</p>
+                <p class="text-[#121212] text-xs lg:text-sm leading-relaxed">{{ $f['desc'] }}</p>
             </div>
             @endforeach
         </div>
@@ -136,7 +136,7 @@
 {{-- ════════════════════════════════════════════════════
      DENAH PREVIEW
 ════════════════════════════════════════════════════ --}}
-<section id="denah" class="py-16 lg:py-20 bg-white">
+<section id="denah" class="py-16 lg:py-20 bg-[#FAFAF5]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="section-title mb-2">Temukan Rute Belanja Anda</h2>
         <p class="section-subtitle mb-8">
@@ -152,7 +152,7 @@
 
             {{-- Fallback placeholder jika gambar belum ada --}}
             <div id="denahPlaceholder"
-                 class="w-full h-64 lg:h-96 bg-[#F4F4EF] hidden items-center justify-center rounded-2xl">
+                 class="w-full h-64 lg:h-96 bg-white hidden items-center justify-center rounded-2xl">
                 <div class="text-center text-gray-400">
                     <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
@@ -182,7 +182,7 @@
                 ['Lapak Non-Halal',               '#C36D8A'],
             ] as [$nama, $warna])
                 <span class="flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:{{ $warna }};"></span>
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:{{ $warna }};"></span>
                     {{ $nama }}
                 </span>
             @endforeach
@@ -203,14 +203,14 @@
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-[#007E43]">R</div>
                     <div>
-                        <p class="font-semibold text-sm text-gray-900">Ria Vitriani</p>
-                        <p class="text-xs text-gray-400">5 bulan lalu</p>
+                        <p class="font-reguler text-sm text-[#1A1C19]">Ria Vitriani</p>
+                        <p class="text-xs text-[#40493D]">5 bulan lalu</p>
                     </div>
                 </div>
                 <div class="flex gap-0.5 mb-2">
                     @for($i=0;$i<5;$i++)<svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>@endfor
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <p class="text-sm text-[#121212] leading-relaxed">
                     Benar-benar pasar modern, pasarnya bersih, terkelola dengan baik, rapih, kebutuhan bahan masakan semua tersedia. Bisa jadi pilihan tempat jalan pagi di weekend bersama keluarga.
                 </p>
             </div>
@@ -220,14 +220,14 @@
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-[#007E43]">M</div>
                     <div>
-                        <p class="font-semibold text-sm text-gray-900">Marsian</p>
-                        <p class="text-xs text-gray-400">2 bulan lalu</p>
+                        <p class="font-reguler text-sm text-[#1A1C19]">Marsian</p>
+                        <p class="text-xs text-[#40493D]">2 bulan lalu</p>
                     </div>
                 </div>
                 <div class="flex gap-0.5 mb-2">
                     @for($i=0;$i<5;$i++)<svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>@endfor
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <p class="text-sm text-[#121212] leading-relaxed">
                     Summarecon Gedebage bisa menjadi salah satu destinasi olahraga jalan pagi. Ada berbagai lapak sayuran, bumbu basah/kering, buah, daging, ayam, ikan basah, bahkan alat dapur. Kulineran juga tersedia!
                 </p>
             </div>
@@ -237,14 +237,14 @@
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-[#007E43]">H</div>
                     <div>
-                        <p class="font-semibold text-sm text-gray-900">Hanny Mardiani</p>
-                        <p class="text-xs text-gray-400">3 bulan lalu</p>
+                        <p class="font-reguler text-sm text-[#1A1C19]">Hanny Mardiani</p>
+                        <p class="text-xs text-[#40493D]">3 bulan lalu</p>
                     </div>
                 </div>
                 <div class="flex gap-0.5 mb-2">
                     @for($i=0;$i<5;$i++)<svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>@endfor
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <p class="text-sm text-[#121212] leading-relaxed">
                     Pasar bersih, harganya tidak jauh beda dengan pasar pada umumnya. Ada kedai favorit mie gomak aceh yang mantap dan harganya murah.
                 </p>
             </div>
@@ -256,7 +256,7 @@
      BERITA TERBARU (dari database konten)
 ════════════════════════════════════════════════════ --}}
 @if ($beritaTerbaru->count())
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-[#FAFAF5]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title text-center mb-10">Berita &amp; Promosi Terbaru</h2>
 
