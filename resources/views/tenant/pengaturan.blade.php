@@ -160,8 +160,8 @@
                        onchange="previewAvatar(this)">
 
                 {{-- Nama Toko --}}
-                <div class="form-group">
-                    <label class="form-label">NAMA TOKO</label>
+                <div class="form-group mb-4">
+                    <label class="form-label" style="margin-left: 15px !important;">NAMA TOKO</label>
                     <input type="text" name="nama_tenant"
                            class="form-input @error('nama_tenant') ring-2 ring-red-300 @enderror"
                            value="{{ old('nama_tenant', $tenant->nama_tenant) }}" required>
@@ -170,19 +170,19 @@
 
                 {{-- Kategori — full width (mobile), 2-col (desktop) --}}
                 {{-- Mobile: stacked single col sesuai desain screenshot --}}
-                <div class="form-group">
+                <div class="form-group" style="padding-left: 15px !important;">
                     <label class="form-label">KATEGORI</label>
                     <select name="kategori" class="form-select @error('kategori') ring-2 ring-red-300 @enderror">
-                        @foreach (['Lapak Basah','Lapak Kering','Bahan Pangan Mentah','Sayuran','Buah-buahan','Daging & Ikan','Bumbu & Rempah','Sembako','Lainnya'] as $opt)
-                            <option value="{{ $opt }}" {{ old('kategori', $tenant->kategori) === $opt ? 'selected' : '' }}>
-                                {{ $opt }}
-                            </option>
-                        @endforeach
-                    </select>
+                    @foreach (['Lapak Basah','Lapak Kering','Bahan Pangan Mentah','Sayuran','Buah-buahan','Daging & Ikan','Bumbu & Rempah','Sembako','Lainnya'] as $opt)
+                <option value="{{ $opt }}" {{ old('kategori', $tenant->kategori) === $opt ? 'selected' : '' }}>
+                {{ $opt }}
+                </option>
+                    @endforeach
+                </select>
                 </div>
 
-                {{-- Blok --}}
-                <div class="form-group">
+                {{-- Blok — i --}}
+                <div class="form-group" style="padding-left: 15px !important;">
                     <label class="form-label">BLOK</label>
                     <select type="text" name="denah_id"
                            class="form-select @error('blok') ring-2 ring-red-300 @enderror"
@@ -197,11 +197,11 @@
                         @endforeach
                     </select>
                     @error('blok')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
-
                 </div>
+                
                 {{-- Nama Pemilik --}}
-                <div class="form-group">
-                    <label class="form-label">NAMA PEMILIK</label>
+                <div class="form-group mb-4">
+                    <label class="form-label" style="margin-left: 15px !important;">NAMA PEMILIK</label>
                     <input type="text" name="nama_pemilik"
                            class="form-input @error('nama_pemilik') ring-2 ring-red-300 @enderror"
                            value="{{ old('nama_pemilik', $user->name) }}" required>
@@ -209,23 +209,22 @@
                 </div>
 
                 {{-- Email --}}
-                <div class="form-group">
-                    <label class="form-label">EMAIL</label>
+                <div class="form-group mb-4">
+                    <label class="form-label" style="margin-left: 15px !important;">EMAIL</label>
                     <input type="email" name="email"
                            class="form-input @error('email') ring-2 ring-red-300 @enderror"
                            value="{{ old('email', $user->email) }}" required>
                     @error('email')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
                 </div>
 
-                {{-- No. HP --}}
+                {{-- No. HP — Geser teks label ke kiri --}}
                 <div class="form-group" style="margin-bottom:1.5rem;">
-                    <label class="form-label">NO. HP</label>
-                    {{-- Kolom 'phone' perlu ditambahkan ke tabel users via migration --}}
+                    <label class="form-label" style="margin-left: 15px !important;">NO. HP</label>
                     <input type="tel" name="no_hp"
                            class="form-input"
                            value="{{ old('no_hp', $user->phone ?? '') }}"
                            placeholder="Masukkan no. HP disini...">
-                </div>
+                           </div>
 
                 {{-- Simpan profil
                      Mobile : full width pill (sesuai desain)
@@ -239,16 +238,16 @@
             </form>
         </div>
 
-        {{-- ── Ubah Kata Sandi ──────────────────────────── --}}
+{{-- ── Ubah Kata Sandi ──────────────────────────── --}}
         <h3 class="font-manrope font-bold text-gray-900 text-lg">Ubah Kata Sandi</h3>
 
         <div class="settings-section">
             <form method="POST" action="{{ route('tenant.pengaturan.password') }}">
                 @csrf @method('PUT')
 
-                {{-- Kata Sandi Lama --}}
+                {{-- Kata Sandi Lama  --}}
                 <div class="form-group">
-                    <label class="form-label">KATA SANDI LAMA</label>
+                    <label class="form-label" style="margin-left: 15px !important;">KATA SANDI LAMA</label>
                     <div class="input-prefix-wrap">
                         <input type="password" name="kata_sandi_lama"
                                class="form-input pr-10 @error('kata_sandi_lama') ring-2 ring-red-300 @enderror"
@@ -261,7 +260,7 @@
 
                 {{-- Kata Sandi Baru --}}
                 <div class="form-group">
-                    <label class="form-label">KATA SANDI BARU</label>
+                    <label class="form-label" style="margin-left: 15px !important;">KATA SANDI BARU</label>
                     <div class="input-prefix-wrap">
                         <input type="password" name="kata_sandi_baru"
                                class="form-input pr-10 @error('kata_sandi_baru') ring-2 ring-red-300 @enderror"
@@ -274,7 +273,7 @@
 
                 {{-- Ulangi Kata Sandi --}}
                 <div class="form-group" style="margin-bottom:1.5rem;">
-                    <label class="form-label">ULANGI KATA SANDI</label>
+                    <label class="form-label" style="margin-left: 15px !important;">ULANGI KATA SANDI</label>
                     <div class="input-prefix-wrap">
                         <input type="password" name="kata_sandi_baru_confirmation"
                                class="form-input pr-10"
@@ -282,18 +281,13 @@
                     </div>
                 </div>
 
-                {{-- Simpan password --}}
+              {{-- Simpan password --}}
                 <div class="flex justify-end">
                     <button type="submit" class="btn-primary w-full lg:w-auto"
                             style="justify-content:center;font-size:14px;padding:13px 40px;">
                         Simpan
                     </button>
                 </div>
-            </form>
-        </div>
-
-    </div>{{-- /form sections --}}
-</div>
 
 <div class="pb-6"></div>
 @endsection
