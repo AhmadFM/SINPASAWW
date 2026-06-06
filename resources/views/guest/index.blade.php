@@ -252,44 +252,4 @@
     </div>
 </section>
 
-{{-- ════════════════════════════════════════════════════
-     BERITA TERBARU (dari database konten)
-════════════════════════════════════════════════════ --}}
-@if ($beritaTerbaru->count())
-<section class="py-16 lg:py-24 bg-[#FAFAF5]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center mb-10">Berita &amp; Promosi Terbaru</h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            @foreach ($beritaTerbaru as $k)
-            <a href="{{ route('guest.berita', $k->konten_id) }}" class="berita-card group">
-                {{-- Gambar --}}
-                @if ($k->img_url)
-                    <img src="{{ asset('storage/' . $k->img_url) }}"
-                         alt="{{ $k->judul }}"
-                         class="w-full object-cover"
-                         style="aspect-ratio:16/9;">
-                @else
-                    <div class="w-full bg-[#E6F6EE] flex items-center justify-center" style="aspect-ratio:16/9;">
-                        <svg class="w-10 h-10 text-green-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                @endif
-                <div class="p-4">
-                    <span class="kategori-pill mb-2 inline-block">{{ strtoupper($k->kategori) }}</span>
-                    <h3 class="font-manrope font-bold text-gray-900 text-sm leading-snug line-clamp-2 mb-1 group-hover:text-[#007E43] transition-colors"
-                        style="font-family:'Manrope',sans-serif;">
-                        {{ $k->judul }}
-                    </h3>
-                    <p class="text-xs text-gray-500 line-clamp-2">{{ $k->deskripsi }}</p>
-                    <p class="text-[10px] text-gray-400 mt-2">{{ $k->created_at->translatedFormat('d F Y') }}</p>
-                </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
 @endsection
