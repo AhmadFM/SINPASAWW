@@ -165,17 +165,61 @@
                 </svg>
             </button>
             @isset($tenant)
-                @if($tenant->foto)
-                    <img src="{{ asset($tenant->foto) }}" alt="{{ $tenant->nama_tenant }}"
-                         class="w-8 h-8 rounded-full object-cover">
-                @else
-                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                         style="background-color:var(--primary);">
-                        {{ strtoupper(substr($tenant->nama_tenant, 0, 1)) }}
+                <div class="relative">
+                    <button type="button" onclick="event.stopPropagation(); document.getElementById('mobileDropdownLogout').classList.toggle('hidden');" class="flex items-center focus:outline-none bg-transparent border-none p-0 cursor-pointer">
+                        @if($tenant->foto)
+                            <img src="{{ asset($tenant->foto) }}" alt="{{ $tenant->nama_tenant }}" class="w-8 h-8 rounded-full object-cover">
+                        @else
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:var(--primary);">
+                                {{ strtoupper(substr($tenant->nama_tenant, 0, 1)) }}
+                            </div>
+                        @endif
+                    </button>
+                    <div id="mobileDropdownLogout" class="hidden absolute right-0 mt-2 w-36 bg-white rounded-md shadow-xl py-1 border border-gray-200 z-[99999]">
+                        <form method="POST" action="{{ route('logout') }}" class="m-0">
+                            @csrf
+                            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 font-semibold bg-transparent border-none cursor-pointer">
+                                Logout
+                            </button>
+                        </form>
                     </div>
-                @endif
+                </div>
             @endisset
         </div>
+
+        <div class="hidden lg:block absolute top-5 right-5 z-[9999]">
+            @isset($tenant)
+                <div class="relative">
+                    <button type="button" onclick="event.stopPropagation(); document.getElementById('desktopDropdownLogout').classList.toggle('hidden');" class="flex items-center focus:outline-none bg-transparent border-none p-0 cursor-pointer">
+                        @if($tenant->foto)
+                            <img src="{{ asset($tenant->foto) }}" alt="{{ $tenant->nama_tenant }}" class="w-10 h-10 rounded-full object-cover border border-gray-100 hover:opacity-90 transition-opacity">
+                        @else
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold hover:brightness-95 transition-all" style="background-color:var(--primary);">
+                                {{ strtoupper(substr($tenant->nama_tenant, 0, 1)) }}
+                            </div>
+                        @endif
+                    </button>
+                    <div id="desktopDropdownLogout" class="hidden absolute right-0 mt-2 w-36 bg-white rounded-md shadow-xl py-1 border border-gray-200 z-[99999]">
+                        <form method="POST" action="{{ route('logout') }}" class="m-0">
+                            @csrf
+                            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 font-semibold bg-transparent border-none cursor-pointer">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            @endisset
+        </div>
+
+        {{-- Script penutup otomatis dropdown jika klik di luar --}}
+        <script>
+            window.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobileDropdownLogout');
+                const desktopMenu = document.getElementById('desktopDropdownLogout');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                if (desktopMenu && !desktopMenu.classList.contains('hidden')) desktopMenu.classList.add('hidden');
+            });
+        </script>
 
         {{-- Alert modal (dipicu session('alert')) --}}
         @include('components.tenant.alert-modal')

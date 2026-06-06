@@ -7,11 +7,11 @@
 <style>
 .info-content { max-width:760px; margin:0 auto; padding:3.5rem 1.5rem 5rem; }
 .info-label   { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em;
-                text-transform:uppercase; color:#B66E00; margin-bottom:1rem; }
+                text-transform:uppercase; color:#925800; margin-bottom:1rem; }
 .info-content h1 { font-family:'Manrope',sans-serif; font-size:clamp(1.8rem,4vw,2.75rem);
-                   font-weight:800; color:#003B1F; letter-spacing:-.02em; line-height:1.15; margin-bottom:2rem; }
-.article p    { color:#374151; line-height:1.85; margin-bottom:.9rem; font-size:15px; }
-.article p strong { color:#1a1a1a; }
+                   font-weight:800; color:#121212; letter-spacing:-.02em; line-height:1.15; margin-bottom:2rem; }
+.article p    { color:#121212; line-height:1.85; margin-bottom:.9rem; font-size:15px; }
+.article p strong { color:#121212; }
 </style>
 @endsection
 

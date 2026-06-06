@@ -46,7 +46,7 @@
         <article class="flex-1 min-w-0">
 
             {{-- Breadcrumb ── --}}
-            <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+            <div class="flex items-center gap-2 text-xs text-black mb-4">
                 <a href="{{ route('guest.index') }}" class="hover:text-[#007E43] transition-colors">Beranda</a>
                 <span>›</span>
                 <span class="text-gray-600">{{ $konten->judul }}</span>
@@ -61,7 +61,7 @@
             </div>
 
             {{-- Judul ── --}}
-            <h1 class="font-manrope font-black text-2xl lg:text-4xl text-[#003B1F] leading-tight mb-6"
+            <h1 class="font-manrope font-black text-2xl lg:text-4xl text-black leading-tight mb-6"
                 style="font-family:'Manrope',sans-serif;">
                 {{ $konten->judul }}
             </h1>
@@ -105,7 +105,7 @@
              KANAN: Artikel terkait (sidebar)
         ════════════════════════════════════════════ --}}
         @if ($kontenLain->count())
-        <aside class="w-full lg:w-72 xl:w-80 flex-shrink-0">
+        <aside class="w-full lg:w-72 xl:w-80 shrink-0">
             <div class="sticky top-24">
                 <h3 class="font-manrope font-bold text-[#003B1F] mb-4 text-base"
                     style="font-family:'Manrope',sans-serif;">Berita Terkait</h3>
@@ -115,7 +115,7 @@
                         @if ($k->img_url)
                             <img src="{{ asset('storage/' . $k->img_url) }}" alt="{{ $k->judul }}">
                         @else
-                            <div class="w-20 h-[60px] rounded-lg bg-green-50 flex-shrink-0 flex items-center justify-center">
+                            <div class="w-20 h-15 rounded-lg bg-green-50 shrink-0 flex items-center justify-center">
                                 <svg class="w-6 h-6 text-green-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/>
                                 </svg>

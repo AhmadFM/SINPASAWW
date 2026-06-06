@@ -16,7 +16,7 @@
             --primary-soft: #EAF7F1;
             --danger:       #BA1A1A;
             --danger-soft:  #FFDAD6;
-            --orange:       #B66E00;
+            --orange:       #925800;
             --orange-soft:  #FBDDB0;
         }
 
@@ -30,7 +30,7 @@
         .stat-card    { background:#F4F4EF; border-radius:16px; padding:1.5rem; }
         .stat-card.danger-card { background-color:var(--danger-soft); }
         .section-card { background:#F4F4EF; border-radius:16px; }
-        .form-card    { background:#ffffff; border-radius:16px; padding:1.5rem; }
+        .form-card    { background:#fff; border-radius:16px; padding:1.5rem; }
 
         /* ── Buttons ── */
         .btn-outline {
@@ -53,7 +53,7 @@
 
         /* ── Form elements ── */
         .form-group   { margin-bottom:1rem; }
-        .form-label   { display:block; font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#6b7280; margin-bottom:5px; }
+        .form-label   { display:block; padding-left:12px; font-size:12px; font-weight:200; letter-spacing:.07em; text-transform:uppercase; color:#707A6C; margin-bottom:5px; }
         .form-input   { width:100%; padding:12px 14px; border-radius:12px; border:none; outline:none; background:#f0f2f1; font-family:'Be Vietnam Pro',sans-serif; font-size:14px; color:#1c1c1c; transition:background .15s, box-shadow .15s; }
         .form-input:focus { background:#e8f5ef; box-shadow:0 0 0 2px rgba(0,126,67,.2); }
         .form-input::placeholder { color:#b0b8bf; }
@@ -76,8 +76,8 @@
 
         /* ── Page labels ── */
         .page-label   { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); margin-bottom:4px; }
-        .page-title   { font-family:'Manrope',sans-serif; font-size:clamp(1.6rem,4vw,2.5rem); font-weight:800; color:#1a1a1a; letter-spacing:-.02em; line-height:1.1; }
-        .page-subtitle{ font-size:13px; color:#6b7280; margin-top:6px; }
+        .page-title   { font-family:'Manrope',sans-serif; font-size:clamp(1.6rem,4vw,2.5rem); font-weight:800; color:black; letter-spacing:-.02em; line-height:1.1; }
+        .page-subtitle{ font-size:13px; color:black; margin-top:6px; }
 
         /* ── Hamburger ── */
         .hamburger-btn {

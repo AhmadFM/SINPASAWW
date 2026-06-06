@@ -51,7 +51,7 @@
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-[#F8FAF7] via-[#F6F8F4] to-[#EAF7EE] flex items-center justify-center px-5 py-10 relative">
+<body class="min-h-screen bg-linear-to-br from-[#F8FAF7] via-[#F6F8F4] to-[#EAF7EE] flex items-center justify-center px-5 py-10 relative">
 
     <section class="relative z-10 w-full max-w-md flex flex-col items-center justify-center">
 

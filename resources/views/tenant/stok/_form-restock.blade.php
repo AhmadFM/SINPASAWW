@@ -4,57 +4,47 @@
 ──────────────────────────────────────────────────────────── --}}
 @php $prefix ??= 'd'; @endphp
 
-{{-- Nama Barang (select dari daftar barang yang ada) --}}
-<div class="form-group">
-    <label class="form-label">NAMA BARANG</label>
-    <select name="barang_id" class="form-select" required>
-        <option value="">Pilih barang...</option>
-        @foreach ($semuaBarang as $b)
-            <option value="{{ $b->barang_id }}">{{ $b->nama }} (stok: {{ $b->stok }})</option>
-        @endforeach
+{{-- Nama Barang — Ditambah padding-left di tag select agar teks "Pilih barang..." bergeser ke kanan --}}
+<div class="form-group mb-4">
+    <label class="form-label" style="margin-left: 15px !important;">NAMA BARANG</label>
+    <select name="barang_id" class="form-select" 
+            style="padding-left: 20px !important; width: 100% !important;">
+        <option>Pilih barang...</option>
     </select>
 </div>
 
-{{-- Supplier --}}
+{{-- Supplier — Ditambah margin-left minus --}}
 <div class="form-group">
-    <label class="form-label">SUPPLIER</label>
+    <label class="form-label" style="margin-left: 15px !important;">SUPPLIER</label>
     <input type="text" name="supplier_id" placeholder="Pilih supplier..."
     class="form-input" required>
 </div>
 
-{{-- Jumlah + Unit (2 kolom) --}}
-<div class="grid grid-cols-2 gap-3 form-group">
-    <div>
-        <label class="form-label">JUMLAH</label>
-        <input type="number" name="qty" id="{{ $prefix }}RsQty"
-               class="form-input" placeholder="0" min="1"
-               oninput="calcRestock('{{ $prefix }}')" required>
+{{-- Baris Jumlah & Unit — Dorong kedua labelnya ke kanan sedikit --}}
+<div class="grid grid-cols-2 gap-4 mb-4">
+    {{-- Jumlah --}}
+    <div class="form-group">
+        <label class="form-label" style="margin-left: 15px !important;">JUMLAH</label>
+        <input type="number" name="jumlah" class="form-input" placeholder="0">
     </div>
-    <div>
-        <label class="form-label">UNIT</label>
-        <input type="text" name="unit" class="form-input" placeholder="KG" value="KG">
+
+    {{-- Unit --}}
+    <div class="form-group">
+        <label class="form-label" style="margin-left: 15px !important;">UNIT</label>
+        <input type="text" name="unit" class="form-input" placeholder="KG">
     </div>
 </div>
 
-{{-- Harga Per Unit --}}
+{{-- Harga Per Unit — Ditambah margin-left minus --}}
 <div class="form-group">
-    <label class="form-label">HARGA PER UNIT</label>
-    <div class="input-prefix-wrap">
-        <span class="input-prefix">Rp</span>
-        <input type="number" name="harga_beli" id="{{ $prefix }}RsHarga"
-               class="form-input has-prefix" placeholder="0" min="0"
-               oninput="calcRestock('{{ $prefix }}')" required>
-    </div>
+    <label class="form-label" style="margin-left: 15px !important;">HARGA PER UNIT</label>
+    <input type="number" name="harga_per_unit" class="form-input" placeholder="Rp 0" required>
 </div>
 
+{{-- Nominal Diberikan — Ditambah margin-left minus --}}
 <div class="form-group">
-    <label class="form-label">NOMINAL DIBERIKAN</label>
-    <div class="input-prefix-wrap">
-        <span class="input-prefix">Rp</span>
-        <input type="number" id="{{ $prefix }}RsDiberikan"
-               class="form-input has-prefix" placeholder="0" min="0"
-               oninput="calcRestock('{{ $prefix }}')" required>
-    </div>
+    <label class="form-label" style="margin-left: 15px !important;">NOMINAL DIBERIKAN</label>
+    <input type="number" name="nominal_diberikan" class="form-input" placeholder="Rp 0" required>
 </div>
 
 {{-- Metode bayar ke supplier: QRIS / TUNAI --}}

@@ -7,7 +7,8 @@
 <form id="{{ $prefix }}KontenForm"
       method="POST"
       action="{{ route('admin.konten.store') }}"
-      enctype="multipart/form-data">
+      enctype="multipart/form-data"
+      class="w-full space-y-4">
     @csrf
     {{-- Method spoofing: default POST, diubah ke PUT saat edit via JS --}}
     <input type="hidden" name="_method" value="POST">
@@ -15,7 +16,7 @@
     <input type="hidden" id="{{ $prefix }}KontenId" name="_edit_id" value="{{ $editKonten?->konten_id }}">
 
     {{-- Judul --}}
-    <div class="form-group">
+    <div class="form-group pr-3">
         <label class="form-label">JUDUL</label>
         <input type="text"
                id="{{ $prefix }}Judul"
@@ -27,7 +28,7 @@
     </div>
 
     {{-- Kategori + Status Awal (2 kolom) --}}
-    <div class="grid grid-cols-2 gap-3 form-group">
+    <div class="grid grid-cols-2 gap-4 form-group pl-3">
         <div>
             <label class="form-label">KATEGORI</label>
             <select id="{{ $prefix }}Kategori" name="kategori" class="form-select" required>
@@ -50,7 +51,7 @@
     </div>
 
     {{-- Deskripsi --}}
-    <div class="form-group">
+    <div class="form-group pr-3">
         <label class="form-label">DESKRIPSI</label>
         <textarea id="{{ $prefix }}Deskripsi"
                   name="deskripsi"
@@ -59,7 +60,7 @@
     </div>
 
     {{-- Upload Gambar --}}
-    <div class="form-group" style="margin-bottom:1.5rem;">
+    <div class="form-group pl-3" style="margin-bottom:1.5rem;">
         <label class="form-label">UPLOAD GAMBAR</label>
         <div class="dropzone" id="{{ $prefix }}Dropzone">
             <input type="file"
