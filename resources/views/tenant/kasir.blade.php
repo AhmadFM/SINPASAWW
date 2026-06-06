@@ -232,13 +232,15 @@
 </div>
 
 {{-- Hidden form submit --}}
-<form id="payForm" method="POST" action="{{ route('tenant.kasir.store') }}" class="hidden">
+<form id="payForm" method="POST" action="{{ route('tenant.kasir.store') }}" class="hidden" target="_blank">
     @csrf
     <input type="hidden" name="items"           id="fItems">
     <input type="hidden" name="metode_bayar"     id="fMetode"  value="tunai">
     <input type="hidden" name="nominal"          id="fNominal">
     <input type="hidden" name="nama_pelanggan"   id="fNama">
     <input type="hidden" name="kontak_pelanggan" id="fKontak">
+
+    <input type="hidden" name="print_struk" id="fPrintStruk">
 </form>
 
 {{-- Mobile: floating cart button (muncul saat cart tidak kosong) --}}
@@ -565,6 +567,7 @@ function submitForm(namaPelanggan = '', kontakPelanggan = '') {
     document.getElementById('fNominal').value = getNominal();
     document.getElementById('fNama').value    = namaPelanggan;
     document.getElementById('fKontak').value  = kontakPelanggan;
+    document.getElementById('fPrintStruk').value = document.getElementById('printStruk').checked ? 1 : 0;
     document.getElementById('payForm').submit();
 }
 
