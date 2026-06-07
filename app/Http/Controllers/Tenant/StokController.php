@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
-use App\Models\Barang;
+use App\Models\barang;
 use App\Models\BarangMasuk;
-use App\Models\Kasbon;
+use App\Models\kasbon;
 use App\Models\Supplier;
 use App\Models\transaksi_barang;
 use Illuminate\Http\Request;

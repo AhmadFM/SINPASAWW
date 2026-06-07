@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
-use App\Models\Barang;
-use App\Models\Transaksi;
+use App\Models\barang;
+use App\Models\transaksi;
 use App\Models\transaksi_barang;
-use App\Models\Kasbon;
+use App\Models\kasbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
