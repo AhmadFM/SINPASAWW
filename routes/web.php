@@ -135,9 +135,9 @@ Route::get('/tenant/export/excel', [ExportController::class, 'exportExcel'])
 use App\Http\Controllers\DenahController;
 
 Route::get('/denah', [DenahController::class, 'index'])
-    ->name('denah');
+    ->name('guest.denah');
 Route::get('/denah/rute', [DenahController::class, 'show3D'])
-    ->name('denah.3d');
+    ->name('guest.denah-3d');
 
 use App\Http\Controllers\GuestController;
 
