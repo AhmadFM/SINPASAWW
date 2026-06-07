@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
-use App\Models\denah;
+use App\Models\Denah;
 use Illuminate\Support\Facades\DB;
 
 class PengaturanController extends Controller
