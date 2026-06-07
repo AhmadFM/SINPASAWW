@@ -24,7 +24,7 @@
                     {{-- On homepage: smooth scroll anchors --}}
                     <a href="#hero"      class="nav-link {{ $current==='index' ? 'active' : '' }}" data-section="beranda">Beranda</a>
                     <a href="#fasilitas" class="nav-link" data-section="fasilitas">Fasilitas</a>
-                    <a href="#denah" class="nav-link" data-section="denah">Denah</a>
+                    <a href="{{ route('guest.denah') }}" class="nav-link" data-section="denah">Denah</a>
                     <a href="#testimoni" class="nav-link" data-section="testimoni">Testimoni</a>
                     <a href="#footer"    class="nav-link" data-section="footer">Tentang Kami</a>
                 @elseif ($current === 'denah')
