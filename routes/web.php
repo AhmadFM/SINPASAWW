@@ -144,3 +144,8 @@ Route::get('/denah',             [GuestController::class, 'denah'])       ->name
 Route::get('/berita/{id}',       [GuestController::class, 'beritaDetail'])->name('guest.berita');
 Route::get('/syarat-ketentuan',  [GuestController::class, 'snk'])         ->name('guest.snk');
 Route::get('/kebijakan-privasi', [GuestController::class, 'privasi'])     ->name('guest.privasi');
+
+Route::get(
+    '/tenant/kasir/struk/{transaksi}',
+    [KasirController::class, 'strukPdf']
+)->name('tenant.kasir.struk');
