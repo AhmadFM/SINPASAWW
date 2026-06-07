@@ -2,8 +2,8 @@
 // ── app/Http/Controllers/GuestController.php ─────────────────────────────
 namespace App\Http\Controllers;
 
-use App\Models\denah;
-use App\Models\konten;
+use App\Models\Denah;
+use App\Models\Konten;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
