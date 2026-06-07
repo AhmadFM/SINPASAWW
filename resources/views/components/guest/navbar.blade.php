@@ -1,5 +1,5 @@
 {{-- resources/views/components/guest/navbar.blade.php --}}
-<header class="bg-white shadow-sm sticky top-0 z-50"
+<header class="bg-[#F4F4EF] shadow-[2px] sticky top-0 z-50"
         style="box-shadow:0 2px 10px rgba(0,0,0,.06);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -24,19 +24,19 @@
                     {{-- On homepage: smooth scroll anchors --}}
                     <a href="#hero"      class="nav-link {{ $current==='index' ? 'active' : '' }}" data-section="beranda">Beranda</a>
                     <a href="#fasilitas" class="nav-link" data-section="fasilitas">Fasilitas</a>
-                    <a href="{{ route('guest.denah') }}" class="nav-link" data-section="denah">Denah</a>
+                    <a href="#denah" class="nav-link" data-section="denah">Denah</a>
                     <a href="#testimoni" class="nav-link" data-section="testimoni">Testimoni</a>
                     <a href="#footer"    class="nav-link" data-section="footer">Tentang Kami</a>
                 @elseif ($current === 'denah')
                     <a href="{{ route('guest.index') }}"              class="nav-link">Beranda</a>
                     <a href="{{ route('guest.index') }}#fasilitas"    class="nav-link">Fasilitas</a>
-                    <a href="{{ route('guest.denah') }}"              class="nav-link active">Denah</a>
+                    <a href="{{ route('guest.denah') }}#denah              class="nav-link active">Denah</a>
                     <a href="{{ route('guest.index') }}#testimoni"    class="nav-link">Testimoni</a>
                     <a href="{{ route('guest.index') }}#footer"       class="nav-link">Tentang Kami</a>
                 @else
                     <a href="{{ route('guest.index') }}"              class="nav-link">Beranda</a>
                     <a href="{{ route('guest.index') }}#fasilitas"    class="nav-link">Fasilitas</a>
-                    <a href="{{ route('guest.denah') }}"              class="nav-link">Denah</a>
+                    <a href="{{ route('guest.denah') }}#denah              class="nav-link">Denah</a>
                     <a href="{{ route('guest.index') }}#testimoni"    class="nav-link">Testimoni</a>
                     <a href="{{ route('guest.index') }}#footer"       class="nav-link">Tentang Kami</a>
                 @endif
