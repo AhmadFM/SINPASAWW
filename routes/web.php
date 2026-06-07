@@ -104,9 +104,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //         return redirect('/login');
 //     })->name('logout');
 
-    //     /* Edit Konten*/
-    // Route::put('/admin/konten/{id}', [AdminKontenController::class, 'update'])
-    // ->name('admin.konten.update');
+        /* Edit Konten*/
+    Route::put('/admin/konten/{id}', [AdminKontenController::class, 'update'])
+    ->name('admin.konten.update');
 
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 
