@@ -33,7 +33,7 @@
 
             <a href="{{ route($link['route']) }}"
                onclick="closeSidebar()"
-               class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-sm font-reguler font-[Be Vietnam Pro]
+               class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-[0.7rem]
                       transition-all duration-150
                       {{ $active ? 'text-white' : 'text-[#007E43]' }}"
                style="{{ $active ? 'background-color:#007E43;' : '' }}"
@@ -65,7 +65,7 @@
         <form method="POST" action="{{route('logout')}}">
             @csrf
             <button type="submit"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-sm font-[Be Vietnam Pro] w-full text-[#007E43] transition-all duration-150"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-[0.7rem] w-full text-[#007E43] transition-all duration-150"
                 onmouseenter="this.style.backgroundColor='#FEE2E2'; this.style.color='#DC2626';"
                 onmouseleave="this.style.backgroundColor=''; this.style.color='';">
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
