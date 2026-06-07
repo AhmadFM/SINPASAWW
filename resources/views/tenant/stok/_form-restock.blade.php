@@ -13,14 +13,14 @@
     </select>
 </div>
 
-{{-- Supplier — Ditambah margin-left minus --}}
+{{-- Supplier  --}}
 <div class="form-group">
     <label class="form-label" style="margin-left: 15px !important;">SUPPLIER</label>
     <input type="text" name="supplier_id" placeholder="Pilih supplier..."
     class="form-input" required>
 </div>
 
-{{-- Baris Jumlah & Unit — Dorong kedua labelnya ke kanan sedikit --}}
+{{-- Baris Jumlah & Unit  --}}
 <div class="grid grid-cols-2 gap-4 mb-4">
     {{-- Jumlah --}}
     <div class="form-group">
@@ -35,13 +35,13 @@
     </div>
 </div>
 
-{{-- Harga Per Unit — Ditambah margin-left minus --}}
+{{-- Harga Per Unit --}}
 <div class="form-group">
     <label class="form-label" style="margin-left: 15px !important;">HARGA PER UNIT</label>
     <input type="number" name="harga_per_unit" class="form-input" placeholder="Rp 0" required>
 </div>
 
-{{-- Nominal Diberikan — Ditambah margin-left minus --}}
+{{-- Nominal Diberikan  --}}
 <div class="form-group">
     <label class="form-label" style="margin-left: 15px !important;">NOMINAL DIBERIKAN</label>
     <input type="number" name="nominal_diberikan" class="form-input" placeholder="Rp 0" required>
