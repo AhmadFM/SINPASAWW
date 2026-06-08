@@ -62,7 +62,7 @@ class StokController extends Controller
             'nama'       => $request->nama,
             'harga_jual' => $request->harga_jual,
             'stok'       => $request->stok,
-            'unit'       -> $request->unit
+            'unit'       => $request->unit
         ]);
 
         return redirect()->route('tenant.stok')
