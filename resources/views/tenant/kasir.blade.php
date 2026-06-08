@@ -293,7 +293,7 @@
                 <span class="input-prefix">Rp</span>
                 <input type="hidden" id="mNominal" class="form-input has-prefix"
                        placeholder="0" oninput="syncNominal(this,'d')" min="0">
-                <input type="text" id="NominalM" class="form-input has-prefix"
+                <input type="number" id="NominalM" class="form-input has-prefix"
                        placeholder="0" oninput="syncNominal(this,'d')" min="0">
             </div>
         </div>
@@ -390,14 +390,6 @@ const nominal = document.getElementById('Nominal');
 nominal.addEventListener('input', function(e) {
     let angka = this.value;
     dNominal.value = angka;
-    this.value = Number(angka).toLocaleString('id-ID');
-});
-
-const nominalM = document.getElementById('Nominal');
-
-nominalM.addEventListener('input', function(e) {
-    let angka = this.value;
-    mNominal.value = angka;
     this.value = Number(angka).toLocaleString('id-ID');
 });
 
