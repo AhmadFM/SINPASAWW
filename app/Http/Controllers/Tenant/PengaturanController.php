@@ -59,13 +59,21 @@ class PengaturanController extends Controller
         ];
 
         /* ── Handle foto upload ── */
+        // if ($request->hasFile('foto')) {
+        //     // Hapus foto lama
+        //     if ($tenant->foto && Storage::disk('public')->exists($tenant->foto)) {
+        //         Storage::disk('public')->delete($tenant->foto);
+        //     }
+        //     $path = $request->file('foto')->store('tenant-photos', 'public');
+        //     $tenantData['foto'] = 'storage/' . $path;
+        // }
+
+        /* ── Handle foto upload ── */
         if ($request->hasFile('foto')) {
-            // Hapus foto lama
-            if ($tenant->foto && Storage::disk('public')->exists($tenant->foto)) {
-                Storage::disk('public')->delete($tenant->foto);
-            }
-            $path = $request->file('foto')->store('tenant-photos', 'public');
-            $tenantData['foto'] = 'storage/' . $path;
+            $path = cloudinary()->upload($request->file('foto')->getRealPath(), [
+                'folder' => 'tenant-photos'
+            ])->getSecurePath();
+            $tenantData['foto'] = $path;
         }
 
         $tenant->update($tenantData);
