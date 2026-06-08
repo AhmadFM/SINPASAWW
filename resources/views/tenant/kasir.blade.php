@@ -291,7 +291,9 @@
             <label class="form-label">NOMINAL DITERIMA</label>
             <div class="input-prefix-wrap">
                 <span class="input-prefix">Rp</span>
-                <input type="number" id="mNominal" class="form-input has-prefix"
+                <input type="hidden" id="mNominal" class="form-input has-prefix"
+                       placeholder="0" oninput="syncNominal(this,'d')" min="0">
+                <input type="number" id="NominalM" class="form-input has-prefix"
                        placeholder="0" oninput="syncNominal(this,'d')" min="0">
             </div>
         </div>
@@ -378,23 +380,27 @@ document.getElementById('searchInput').addEventListener('input', function () {
 /* ── Cart state ──────────────────────────────────────────── */
 const cart = {};
 let   metode = 'tunai';
+const dNominal = document.getElementById('dNominal');
+const mNominal = document.getElementById('mNominal');
 const rp = n => 'Rp ' + Number(n).toLocaleString('id-ID');
 
+// REVISI AAAAAAAAAAAA
 const nominal = document.getElementById('Nominal');
-const dNominal = document.getElementById('dNominal');
 
 nominal.addEventListener('input', function(e) {
-    let angka = this.value.replace(/\D/g, "");
+    let angka = this.value;
     dNominal.value = angka;
     this.value = Number(angka).toLocaleString('id-ID');
-//   // format number
-//   this.val(function(index, value) {
-//     return value
-//     .replace(/\D/g, "")
-//     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-//     ;
-//   });
 });
+
+const nominalM = document.getElementById('Nominal');
+
+nominalM.addEventListener('input', function(e) {
+    let angka = this.value;
+    mNominal.value = angka;
+    this.value = Number(angka).toLocaleString('id-ID');
+});
+
 /* Tambah item ke cart */
 function addToCart(id, nama, harga, maxStok) {
 
