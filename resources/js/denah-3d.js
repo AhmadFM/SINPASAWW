@@ -92,8 +92,7 @@ let mixer;
 let animations = {};
 
 const gltfLoader = new GLTFLoader();
-// Pastikan path ini benar di dalam folder public Laravel-mu (misal: public/assets/Creeper/...)
-gltfLoader.load('/models/creeper/creeper.gltf', (gltf) => {
+gltfLoader.load('public/models/creeper/creeper.gltf', (gltf) => {
     const model = gltf.scene;
     model.scale.set(6, 6, 6);
     model.traverse((object) => {

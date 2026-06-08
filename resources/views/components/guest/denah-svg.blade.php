@@ -1167,7 +1167,7 @@
 
                                 <!-- Jalur vDalam Tengah -->
                                 <line class="jalur-navigasi" data-from="node-vdt-1" data-to="node-vdt-4" opacity="0.01" fill-opacity="0.01" />
-                                <line class="jalur-navigasi" data-from="node-vdk-7" data-to="node-vdk-4" opacity="0.01" fill-opacity="0.01" />
+                                <line class="jalur-navigasi" data-from="node-vdt-7" data-to="node-vdt-4" opacity="0.01" fill-opacity="0.01" />
                                 <line class="jalur-navigasi" data-from="node-vdt-7" data-to="node-path-persimpangan-tengah" opacity="0.01" fill-opacity="0.01" />
 
                                 <!-- Jalur vDalam Kanan -->
