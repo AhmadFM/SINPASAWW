@@ -199,7 +199,7 @@
                 <label class="form-label">NOMINAL DITERIMA</label>
                 <div class="input-prefix-wrap">
                     <span class="input-prefix">Rp</span>
-                    <input type="number" id="dNominal" class="form-input has-prefix"
+                    <input name="nominal" type="number" id="dNominal" class="form-input has-prefix"
                            placeholder="0" oninput="syncNominal(this,'m')" min="0">
                 </div>
             </div>
@@ -377,7 +377,15 @@ document.getElementById('searchInput').addEventListener('input', function () {
 const cart = {};
 let   metode = 'tunai';
 const rp = n => 'Rp ' + Number(n).toLocaleString('id-ID');
-
+var nNominalInput = document.getElementById('mnominal').val().replace(/,/gi, "");
+var nNominalInput2 = nNominalInput.split(/(?=(?:\d{3})+$)/).join(".");
+// // const mNominalInput = document.getElementById('mnominal');
+// nNominalInput.addEventListener('input', function(e){
+//     let titik = value.split('.');
+//     titik[0] = titik[0].replace
+// }
+// )
+// dNominal
 /* Tambah item ke cart */
 function addToCart(id, nama, harga, maxStok) {
 
